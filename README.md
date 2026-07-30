@@ -38,4 +38,3 @@ npm run dev       # wrangler dev
 ## Ship protocol
 
 Branch → PR → review → merge → `npm run deploy` (see `AGENTS.md` / pr-ship-gate).
-DNS cutover off Empowery is owner-gated.
