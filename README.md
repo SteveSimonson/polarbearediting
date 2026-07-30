@@ -2,8 +2,8 @@
 
 **Professional book editing and author education** — returning polarbearediting.com to its roots.
 
-Live (preview): deploy via `npm run deploy` → `*.polarbearediting.workers.dev`  
-Production domain: [https://polarbearediting.com](https://polarbearediting.com) (currently Empowery redirect until cutover)
+Live: [https://polarbearediting.com](https://polarbearediting.com)  
+Workers.dev: `polarbearediting.tech-bf6.workers.dev`
 
 ## Roots
 
@@ -38,4 +38,3 @@ npm run dev       # wrangler dev
 ## Ship protocol
 
 Branch → PR → review → merge → `npm run deploy` (see `AGENTS.md` / pr-ship-gate).
-DNS cutover off Empowery is owner-gated.

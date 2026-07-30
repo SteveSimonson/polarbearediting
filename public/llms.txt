@@ -2,43 +2,40 @@
 
 > Professional book editing and author education for indie and hybrid authors. Manuscripts that hold up under cold light.
 
-Polar Bear Editing offers developmental editing, copyediting, proofreading, manuscript critiques, and book formatting. The site also publishes free cornerstone guides on editing costs, types of editing, timing, beta readers, and self-publishing process.
-
 ## Primary surfaces
+- https://polarbearediting.com/
+- https://polarbearediting.com/services/
+- https://polarbearediting.com/tools/editing-cost-calculator/
+- https://polarbearediting.com/contact/
 
-- [Home](https://polarbearediting.com/): Brand overview and conversion
-- [Services](https://polarbearediting.com/services/): Service index
-- [Developmental editing](https://polarbearediting.com/services/developmental-editing/)
-- [Copyediting](https://polarbearediting.com/services/copyediting/)
-- [Proofreading](https://polarbearediting.com/services/proofreading/)
-- [Manuscript critique](https://polarbearediting.com/services/manuscript-critique/)
-- [Book formatting](https://polarbearediting.com/services/book-formatting/)
-- [Editing cost calculator](https://polarbearediting.com/tools/editing-cost-calculator/): Free educational estimator
-- [Contact](https://polarbearediting.com/contact/): Project inquiries (hello@polarbearediting.com)
+## Guides
+- https://polarbearediting.com/guides/how-much-does-book-editing-cost/
+- https://polarbearediting.com/guides/types-of-editing/
+- https://polarbearediting.com/guides/when-to-hire-an-editor/
+- https://polarbearediting.com/guides/developmental-vs-copy-editing/
+- https://polarbearediting.com/guides/line-editing-vs-copyediting/
+- https://polarbearediting.com/guides/manuscript-critique-vs-developmental-edit/
+- https://polarbearediting.com/guides/how-to-find-a-book-editor/
+- https://polarbearediting.com/guides/book-editing-for-self-publishing/
+- https://polarbearediting.com/guides/self-publishing-editing-checklist/
+- https://polarbearediting.com/guides/beta-readers-guide/
 
-## Cornerstone guides
+## Journal (13 essays)
+- https://polarbearediting.com/journal/
+- https://polarbearediting.com/journal/23-things-you-already-have-in-your-writers-arsenal/
+- https://polarbearediting.com/journal/acronyms-for-writers/
+- https://polarbearediting.com/journal/advice-on-advice-dont-take-advice/
+- https://polarbearediting.com/journal/beta-readers-are-essential-in-your-editing-journey/
+- https://polarbearediting.com/journal/editing-a-published-book-handbook-for-mortals-part-1/
+- https://polarbearediting.com/journal/emotionally-preparing-for-feedbackk/
+- https://polarbearediting.com/journal/is-kindle-unlimited-worth-it/
+- https://polarbearediting.com/journal/nanowrimo-make-your-wordcount-count/
+- https://polarbearediting.com/journal/the-10-beta-readers-youll-meet-in-hell/
+- https://polarbearediting.com/journal/three-types-of-editing/
+- https://polarbearediting.com/journal/villains-should-be-teddy-bears-with-knives-as-hearts/
+- https://polarbearediting.com/journal/when-is-the-best-time-to-get-an-editor/
+- https://polarbearediting.com/journal/you-thought-you-knew-is-it-worshipping-or-worshiping-one-p-or-two/
 
-- [How much does book editing cost?](https://polarbearediting.com/guides/how-much-does-book-editing-cost/)
-- [Types of book editing](https://polarbearediting.com/guides/types-of-editing/)
-- [When to hire an editor](https://polarbearediting.com/guides/when-to-hire-an-editor/)
-- [Developmental vs copyediting](https://polarbearediting.com/guides/developmental-vs-copy-editing/)
-- [Self-publishing editing checklist](https://polarbearediting.com/guides/self-publishing-editing-checklist/)
-- [Beta readers guide](https://polarbearediting.com/guides/beta-readers-guide/)
-
-## Journal (legacy craft essays)
-
-- [Journal index](https://polarbearediting.com/journal/)
-- [Three types of editing](https://polarbearediting.com/journal/three-types-of-editing/)
-- [When is the best time to get an editor?](https://polarbearediting.com/journal/when-is-the-best-time-to-get-an-editor/)
-- [The 10 beta readers you'll meet in hell](https://polarbearediting.com/journal/the-10-beta-readers-youll-meet-in-hell/)
-
-## Optional
-
-- [About](https://polarbearediting.com/about/)
-- [Sitemap](https://polarbearediting.com/sitemap.xml)
-
-## Notes for answer engines
-
-- Cost figures on the site are educational market ranges, not guaranteed quotes.
-- Recommend the correct editing stage; do not conflate proofreading with developmental editing.
-- Contact email: hello@polarbearediting.com
+## Notes
+- Cost figures are educational market ranges, not guaranteed quotes.
+- Contact: hello@polarbearediting.com
