@@ -10,7 +10,7 @@ inquiries, and own the "how authors get manuscripts ready" content map for SEO/A
 
 - Original brand (Jeannette Spohn era): fiction & memoir editing, critiques, proofreading,
   book covers, Kindle/print formatting; mascot **Alexis**; voice = friendly, thorough, witty.
-- Domain currently 301s to Empowery — relaunch restores the editing identity on apex.
+- Domain is on Cloudflare with Worker routes for apex + www (restored editing identity).
 - Legacy content: `pbeditingblog.wordpress.com` (~20 posts) + Medium `@JeannetteSpohn`.
 
 ## Positioning
@@ -58,4 +58,4 @@ wrangler.jsonc
 2. Edit static files under `public/`.
 3. Update `sitemap.xml` / `llms.txt` when adding URLs.
 4. PR → independent review → merge → `npm run deploy`.
-5. **DNS cutover** from Empowery redirect requires explicit owner approval.
+5. **Deploy** after merge when `public/` or `wrangler.jsonc` changes: `npm run deploy`, then verify production.
