@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Polar Bear Editing">
+  <rect width="64" height="64" rx="14" fill="#0B1420"/>
+  <circle cx="32" cy="30" r="16" fill="#F7F4EE"/>
+  <circle cx="26" cy="27" r="2.2" fill="#0B1420"/>
+  <circle cx="38" cy="27" r="2.2" fill="#0B1420"/>
+  <ellipse cx="32" cy="33.5" rx="3.2" ry="2.4" fill="#0B1420"/>
+  <path d="M24 38c3 3 13 3 16 0" fill="none" stroke="#C45C4A" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M18 18c-2 4-2 8 0 10 3-1 6-4 7-8-2-1-5-2-7-2z" fill="#F7F4EE"/>
+  <path d="M46 18c2 4 2 8 0 10-3-1-6-4-7-8 2-1 5-2 7-2z" fill="#F7F4EE"/>
+  <path d="M14 50h36" stroke="#3D8FBF" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <path d="M20 54h24" stroke="#9EC9E8" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+</svg>

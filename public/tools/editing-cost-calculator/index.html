@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Editing Cost Calculator — Polar Bear Editing</title>
+  <meta name="description" content="Free book editing cost calculator: estimate developmental editing, copyediting, proofreading, and critique costs by word count." />
+  <link rel="canonical" href="https://polarbearediting.com/tools/editing-cost-calculator/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0B1420" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://polarbearediting.com/tools/editing-cost-calculator/" />
+  <meta property="og:title" content="Book Editing Cost Calculator — Polar Bear Editing" />
+  <meta property="og:description" content="Free book editing cost calculator: estimate developmental editing, copyediting, proofreading, and critique costs by word count." />
+  <meta property="og:site_name" content="Polar Bear Editing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Book Editing Cost Calculator — Polar Bear Editing" />
+  <meta name="twitter:description" content="Free book editing cost calculator: estimate developmental editing, copyediting, proofreading, and critique costs by word count." />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Book Editing Cost Calculator",
+    "url": "https://polarbearediting.com/tools/editing-cost-calculator/",
+    "applicationCategory": "BusinessApplication",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    "description": "Free educational calculator for book editing costs by service type and word count.",
+    "publisher": {"@type": "Organization", "name": "Polar Bear Editing"}
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Polar Bear <span>Editing</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="/services/">Services</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/editing-cost-calculator/">Cost calculator</a>
+        <a href="/journal/">Journal</a>
+        <a href="/about/">About</a>
+        <a class="nav-cta" href="/contact/">Get a quote</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/tools/editing-cost-calculator/">Tools</a><span>/</span><span>Cost calculator</span></nav>
+        <p class="eyebrow">Free tool</p>
+        <h1>Book editing cost calculator</h1>
+        <p class="lead">Educational market ranges by service and word count. Not a quote—use it to budget, then request a scoped estimate.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="calc-panel">
+          <form id="cost-form" action="#" method="get">
+            <div class="field">
+              <label for="word-count">Manuscript word count</label>
+              <input id="word-count" name="words" type="number" min="1000" step="1000" value="80000" required />
+            </div>
+            <div class="field">
+              <label for="service-type">Service type</label>
+              <select id="service-type" name="service">
+                <option value="critique">Manuscript critique</option>
+                <option value="developmental" selected>Developmental editing</option>
+                <option value="copyedit">Copyediting</option>
+                <option value="proofread">Proofreading</option>
+                <option value="package">Dev + copy package</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Update estimate</button>
+            <p class="muted" style="margin-top:1rem;font-size:0.9rem">Ranges reflect common indie-market bands. Complexity, rush fees, and manuscript condition change real quotes.</p>
+          </form>
+          <div class="calc-result" id="cost-result">
+            <p class="eyebrow">Estimated market range</p>
+            <p class="range" id="cost-range">—</p>
+            <p class="detail" id="cost-detail">Enter your word count to see an educational range.</p>
+            <p class="hours" id="cost-hours"></p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="/contact/">Request a real quote</a>
+              <a class="btn btn-secondary" href="/guides/how-much-does-book-editing-cost/">Read the cost guide</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container prose" style="max-width:72ch">
+        <h2>How to use this number</h2>
+        <p>If developmental editing looks high, do not “save money” by buying proofreading instead. That is how rough books ship polished. Adjust stage, not reality.</p>
+        <p>Next: compare <a href="/guides/types-of-editing/">types of editing</a>, then <a href="/contact/">tell us</a> genre, word count, and goals for a scoped quote.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Polar Bear Editing</div>
+          <p>Professional book editing and author education. Manuscripts that hold up under cold light—and writers who feel backed, not bruised.</p>
+          <p><a href="mailto:hello@polarbearediting.com">hello@polarbearediting.com</a></p>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <ul>
+            <li><a href="/services/developmental-editing/">Developmental editing</a></li>
+            <li><a href="/services/copyediting/">Copyediting</a></li>
+            <li><a href="/services/proofreading/">Proofreading</a></li>
+            <li><a href="/services/manuscript-critique/">Manuscript critique</a></li>
+            <li><a href="/services/book-formatting/">Book formatting</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Learn</h3>
+          <ul>
+            <li><a href="/guides/">All guides</a></li>
+            <li><a href="/guides/how-much-does-book-editing-cost/">Editing costs</a></li>
+            <li><a href="/guides/types-of-editing/">Types of editing</a></li>
+            <li><a href="/tools/editing-cost-calculator/">Cost calculator</a></li>
+            <li><a href="/journal/">Journal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Site</h3>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+            <li><a href="/llms.txt">llms.txt</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="y"></span> Polar Bear Editing. All rights reserved.</span>
+        <span>Returning the domain to its editorial roots.</span>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script src="/assets/main.js" defer></script>
+</body>
+</html>
