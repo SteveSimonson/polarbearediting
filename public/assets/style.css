@@ -1,3 +1,8 @@
+/*
+ * Brand tokens — normative contract: DESIGN.md (repo root).
+ * Change DESIGN.md first, then mirror values here.
+ * Do not invent off-palette colors in components.
+ */
 /* Polar Bear Editing — arctic editorial system */
 :root {
   --night: #0b1420;
