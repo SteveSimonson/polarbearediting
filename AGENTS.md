@@ -59,3 +59,29 @@ wrangler.jsonc
 3. Update `sitemap.xml` / `llms.txt` when adding URLs.
 4. PR → independent review → merge → `npm run deploy`.
 5. **Deploy** after merge when `public/` or `wrangler.jsonc` changes: `npm run deploy`, then verify production.
+
+## Design system (mandatory for UI)
+
+**Source of truth:** [`DESIGN.md`](./DESIGN.md) at the repo root (tokens + prose + do's/don'ts).
+
+### Before any UI / CSS / component / layout work
+
+1. **Read `DESIGN.md`** (full file, or at least Overview, Colors, Components, Do's and Don'ts).
+2. **Do not invent** colors, fonts, radii, shadows, or button styles outside that contract.
+3. Prefer existing theme tokens and shared button/card/field classes over one-off hex in markup.
+4. If the brand must change: **update `DESIGN.md` first**, then mirror into the site CSS, then components.
+
+### Adversarial review — UI PRs
+
+When the diff touches styles, layout, or visual components:
+
+- Flag any hex, font-family, or radius **not** listed in `DESIGN.md`.
+- Flag new CTA patterns that violate Do's and Don'ts.
+- Confirm the PR checklist includes the DESIGN.md item when UI-related.
+
+### Runtime mapping
+
+| DESIGN.md | Code |
+|-----------|------|
+| Color / type tokens | Primary stylesheet (see DESIGN.md → Components / CSS path) |
+| Components | Existing button, card, field, nav classes in that stylesheet |
