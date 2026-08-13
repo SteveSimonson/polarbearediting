@@ -34,6 +34,7 @@ inquiries, and own the "how authors get manuscripts ready" content map for SEO/A
    - Aurora `#3D8FBF`
    - Pen red `#C45C4A` (editor marks / CTAs)
    - Gold `#C4A35A`
+   - Display Newsreader / body Source Sans 3 / utility IBM Plex Mono (see DESIGN.md)
 5. Legal entity line: **Polar Bear Editing** · contact `hello@polarbearediting.com` until LLC confirmed.
 6. Update `sitemap.xml` and `llms.txt` when adding URLs.
 
