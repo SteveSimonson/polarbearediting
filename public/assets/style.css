@@ -57,7 +57,7 @@ body::before {
     radial-gradient(ellipse 110% 62% at 48% -18%, rgba(61, 143, 191, 0.32), transparent 58%),
     radial-gradient(ellipse 46% 38% at 100% 8%, rgba(158, 201, 232, 0.12), transparent 52%),
     radial-gradient(ellipse 42% 48% at -8% 88%, rgba(196, 92, 74, 0.08), transparent 54%),
-    linear-gradient(180deg, #0b1420 0%, #091018 100%);
+    linear-gradient(180deg, var(--night) 0%, var(--night) 100%);
 }
 body::after {
   content: "";
@@ -124,7 +124,7 @@ button, input, select, textarea { font-family: inherit; }
   backdrop-filter: blur(16px) saturate(1.15);
   background: rgba(11, 20, 32, 0.78);
   border-bottom: 1px solid var(--line);
-  box-shadow: inset 0 -1px 0 rgba(196, 163, 90, 0.22);
+  box-shadow: inset 0 -1px 0 rgba(158, 201, 232, 0.16);
 }
 .header-inner {
   width: min(100% - 2rem, var(--max));
@@ -281,7 +281,7 @@ button, input, select, textarea { font-family: inherit; }
   background: linear-gradient(160deg, rgba(21, 35, 52, 0.95), rgba(11, 20, 32, 0.98));
   border: 1px solid var(--line);
   border-left: 2px solid var(--pen);
-  border-radius: var(--radius-paper) calc(var(--radius) + 4px) calc(var(--radius) + 4px) var(--radius-paper);
+  border-radius: var(--radius-paper) var(--radius) var(--radius) var(--radius-paper);
   padding: 1.5rem;
   box-shadow: var(--shadow);
 }
@@ -388,7 +388,7 @@ button, input, select, textarea { font-family: inherit; }
   padding: 1.25rem;
   border-radius: var(--radius-paper) var(--radius) var(--radius) var(--radius-paper);
   border: 1px solid var(--line);
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--line-hot);
   background: rgba(11, 20, 32, 0.5);
 }
 .process-step::before {
@@ -699,7 +699,7 @@ button, input, select, textarea { font-family: inherit; }
 .cta-band {
   margin: 0;
   padding: clamp(2.5rem, 6vw, 3.5rem);
-  border-radius: var(--radius-paper) calc(var(--radius) + 4px) calc(var(--radius) + 4px) var(--radius-paper);
+  border-radius: var(--radius-paper) var(--radius) var(--radius) var(--radius-paper);
   background:
     radial-gradient(ellipse 70% 80% at 100% 0%, rgba(196, 92, 74, 0.22), transparent 55%),
     radial-gradient(ellipse 50% 60% at 0% 100%, rgba(61, 143, 191, 0.16), transparent 55%),

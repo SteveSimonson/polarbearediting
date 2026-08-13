@@ -56,7 +56,7 @@ components:
   button-primary:
     backgroundColor: "{colors.pen}"
     textColor: "#ffffff"
-    rounded: "{rounded.full}"
+    rounded: "999px"
   button-secondary:
     backgroundColor: "transparent"
     textColor: "{colors.paper}"
