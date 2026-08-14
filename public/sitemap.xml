@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://polarbearediting.com/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://polarbearediting.com/contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://polarbearediting.com/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://polarbearediting.com/guides/beta-readers-guide/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/book-editing-for-self-publishing/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/developmental-vs-copy-editing/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
