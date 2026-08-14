@@ -4,18 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Book Editing Cost Calculator — Polar Bear Editing</title>
-  <meta name="description" content="Free book editing cost calculator: estimate developmental editing, copyediting, proofreading, and critique costs by word count." />
+  <meta name="description" content="Interactive book editing cost calculator: slide your word count, pick a stage, and see live ranges for developmental editing, copyediting, proofreading, and critiques." />
   <link rel="canonical" href="https://polarbearediting.com/tools/editing-cost-calculator/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#0B1420" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://polarbearediting.com/tools/editing-cost-calculator/" />
   <meta property="og:title" content="Book Editing Cost Calculator — Polar Bear Editing" />
-  <meta property="og:description" content="Free book editing cost calculator: estimate developmental editing, copyediting, proofreading, and critique costs by word count." />
+  <meta property="og:description" content="Interactive book editing cost calculator: slide your word count, pick a stage, and see live ranges for developmental editing, copyediting, proofreading, and critiques." />
   <meta property="og:site_name" content="Polar Bear Editing" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Book Editing Cost Calculator — Polar Bear Editing" />
-  <meta name="twitter:description" content="Free book editing cost calculator: estimate developmental editing, copyediting, proofreading, and critique costs by word count." />
+  <meta name="twitter:description" content="Interactive book editing cost calculator: slide your word count, pick a stage, and see live ranges for developmental editing, copyediting, proofreading, and critiques." />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,7 @@
     "url": "https://polarbearediting.com/tools/editing-cost-calculator/",
     "applicationCategory": "BusinessApplication",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-    "description": "Free educational calculator for book editing costs by service type and word count.",
+    "description": "Interactive educational calculator for book editing costs by service type, word count, manuscript condition, and timeline.",
     "publisher": {"@type": "Organization", "name": "Polar Bear Editing"}
   }
   </script>
@@ -57,41 +57,170 @@
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/tools/editing-cost-calculator/">Tools</a><span>/</span><span>Cost calculator</span></nav>
-        <p class="eyebrow">Free tool</p>
+        <p class="eyebrow">Free tool · Live estimate</p>
         <h1>Book editing cost calculator</h1>
-        <p class="lead">Educational market ranges by service and word count. Not a quote—use it to budget, then request a scoped estimate.</p>
+        <p class="lead">Slide the word count. Mark the stage. Watch the market range move. Educational bands—not a Polar Bear quote.</p>
       </div>
     </section>
     <section class="section">
       <div class="container">
         <div class="calc-panel">
-          <form id="cost-form" action="#" method="get">
-            <div class="field">
-              <label for="word-count">Manuscript word count</label>
-              <input id="word-count" name="words" type="number" min="1000" step="1000" value="80000" required />
+          <form id="cost-form" action="/tools/editing-cost-calculator/" method="get">
+            <fieldset class="calc-fieldset">
+              <legend class="eyebrow">Folio 01 · Length</legend>
+              <div class="word-count-row">
+                <div class="field field-slider">
+                  <label for="word-slider">Word-count slider</label>
+                  <input id="word-slider" type="range" min="1000" max="200000" step="1000" value="80000" />
+                </div>
+                <div class="field">
+                  <label for="word-count">Exact words</label>
+                  <input id="word-count" name="words" type="number" min="1000" max="400000" step="500" value="80000" required inputmode="numeric" />
+                </div>
+              </div>
+              <div class="word-presets" role="group" aria-label="Common manuscript lengths">
+                <button type="button" class="preset" data-words="5000">Short 5k</button>
+                <button type="button" class="preset" data-words="40000">Novella 40k</button>
+                <button type="button" class="preset" data-words="80000" aria-pressed="true">Novel 80k</button>
+                <button type="button" class="preset" data-words="120000">Long 120k</button>
+                <button type="button" class="preset" data-words="180000">Epic 180k</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="calc-fieldset">
+              <legend class="eyebrow">Folio 02 · Stage</legend>
+              <div class="choice-grid choice-grid-2" role="radiogroup" aria-label="Manuscript stage">
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="stage" value="first-draft" />
+                  <span class="choice-title">First full draft</span>
+                  <span class="choice-hint">Structure still moving</span>
+                </label>
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="stage" value="post-beta" checked />
+                  <span class="choice-title">Revised / post-beta</span>
+                  <span class="choice-hint">Story may still need work</span>
+                </label>
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="stage" value="story-locked" />
+                  <span class="choice-title">Story locked</span>
+                  <span class="choice-hint">Language and consistency next</span>
+                </label>
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="stage" value="layout-ready" />
+                  <span class="choice-title">Final freeze</span>
+                  <span class="choice-hint">After layout or last pass</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="calc-fieldset">
+              <legend class="eyebrow">Folio 03 · Service</legend>
+              <div class="choice-grid" role="radiogroup" aria-label="Editing service">
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="service" value="critique" />
+                  <span class="choice-title">Manuscript critique</span>
+                  <span class="choice-hint">Diagnostic letter · $0.008–$0.018</span>
+                </label>
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="service" value="developmental" checked />
+                  <span class="choice-title">Developmental editing</span>
+                  <span class="choice-hint">Story &amp; structure · $0.03–$0.06</span>
+                </label>
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="service" value="copyedit" />
+                  <span class="choice-title">Copyediting</span>
+                  <span class="choice-hint">Clarity &amp; consistency · $0.018–$0.035</span>
+                </label>
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="service" value="proofread" />
+                  <span class="choice-title">Proofreading</span>
+                  <span class="choice-hint">Final polish · $0.01–$0.02</span>
+                </label>
+                <label class="choice">
+                  <input class="visually-hidden" type="radio" name="service" value="package" />
+                  <span class="choice-title">Dev + copy package</span>
+                  <span class="choice-hint">Two-pass path · $0.045–$0.08</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="two-col">
+              <fieldset class="calc-fieldset">
+                <legend class="eyebrow">Condition</legend>
+                <div class="word-presets" role="radiogroup" aria-label="Manuscript condition">
+                  <label class="preset preset-radio">
+                    <input class="visually-hidden" type="radio" name="condition" value="clean" />
+                    Clean
+                  </label>
+                  <label class="preset preset-radio">
+                    <input class="visually-hidden" type="radio" name="condition" value="typical" checked />
+                    Typical
+                  </label>
+                  <label class="preset preset-radio">
+                    <input class="visually-hidden" type="radio" name="condition" value="rough" />
+                    Rough
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="calc-fieldset">
+                <legend class="eyebrow">Timeline</legend>
+                <div class="word-presets" role="radiogroup" aria-label="Timeline">
+                  <label class="preset preset-radio">
+                    <input class="visually-hidden" type="radio" name="rush" value="standard" checked />
+                    Planned
+                  </label>
+                  <label class="preset preset-radio">
+                    <input class="visually-hidden" type="radio" name="rush" value="rush" />
+                    Rush
+                  </label>
+                </div>
+              </fieldset>
             </div>
-            <div class="field">
-              <label for="service-type">Service type</label>
-              <select id="service-type" name="service">
-                <option value="critique">Manuscript critique</option>
-                <option value="developmental" selected>Developmental editing</option>
-                <option value="copyedit">Copyediting</option>
-                <option value="proofread">Proofreading</option>
-                <option value="package">Dev + copy package</option>
-              </select>
-            </div>
-            <button class="btn btn-primary" type="submit">Update estimate</button>
-            <p class="muted" style="margin-top:1rem;font-size:0.9rem">Ranges reflect common indie-market bands. Complexity, rush fees, and manuscript condition change real quotes.</p>
+            <noscript><button class="btn btn-primary" type="submit">Show estimate</button></noscript>
           </form>
+
           <div class="calc-result" id="cost-result">
             <p class="eyebrow">Estimated market range</p>
-            <p class="range" id="cost-range">—</p>
-            <p class="detail" id="cost-detail">Enter your word count to see an educational range.</p>
-            <p class="hours" id="cost-hours"></p>
+            <p class="range" id="cost-range" aria-live="polite">—</p>
+            <p class="detail" id="cost-detail">Move the slider to see an educational range.</p>
+            <dl class="calc-stats">
+              <div>
+                <dt>Per word</dt>
+                <dd id="cost-rate">—</dd>
+              </div>
+              <div>
+                <dt>Editor hours</dt>
+                <dd id="cost-hours">—</dd>
+              </div>
+              <div>
+                <dt>Calendar</dt>
+                <dd id="cost-weeks">—</dd>
+              </div>
+            </dl>
+            <div class="callout" id="cost-note" hidden></div>
             <div class="btn-row">
-              <a class="btn btn-primary" href="/contact/">Request a real quote</a>
-              <a class="btn btn-secondary" href="/guides/how-much-does-book-editing-cost/">Read the cost guide</a>
+              <a class="btn btn-primary" id="quote-link" href="/contact/">Request a real quote</a>
+              <button class="btn btn-secondary" type="button" id="share-estimate">Copy this estimate</button>
             </div>
+            <p class="calc-fineprint">Ranges follow common indie-market bands. Complexity, fact-checking, and sample-page findings change real quotes.</p>
+          </div>
+        </div>
+
+        <div class="card calc-compare">
+          <p class="eyebrow">Same word count · every pass</p>
+          <h2>Compare the path, not just the sticker</h2>
+          <p class="muted">Condition and rush modifiers apply to all rows. The selected service is marked.</p>
+          <div class="calc-table-wrap">
+            <table class="calc-table">
+              <thead>
+                <tr>
+                  <th scope="col">Service</th>
+                  <th scope="col">Range</th>
+                  <th scope="col">Hours</th>
+                </tr>
+              </thead>
+              <tbody id="cost-compare"></tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -100,6 +229,7 @@
       <div class="container prose" style="max-width:72ch">
         <h2>How to use this number</h2>
         <p>If developmental editing looks high, do not “save money” by buying proofreading instead. That is how rough books ship polished. Adjust stage, not reality.</p>
+        <p>Clean manuscripts sit toward the low end. Rough drafts and rush calendars push the high end. None of this replaces a sample-page scope.</p>
         <p>Next: compare <a href="/guides/types-of-editing/">types of editing</a>, then <a href="/contact/">tell us</a> genre, word count, and goals for a scoped quote.</p>
       </div>
     </section>
