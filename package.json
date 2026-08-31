@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx wrangler dev",
     "deploy": "npx wrangler deploy",
-    "preview": "cd public && python3 -m http.server 8893"
+    "preview": "cd public && python3 -m http.server 8893",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.20.0"

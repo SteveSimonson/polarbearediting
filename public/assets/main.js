@@ -17,6 +17,55 @@
     });
   }
 
+  var inquiry = document.getElementById("inquiry-form");
+  if (inquiry) {
+    var statusEl = document.getElementById("inq-status");
+    inquiry.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var btn = inquiry.querySelector('button[type="submit"]');
+      if (statusEl) statusEl.textContent = "Sending…";
+      if (btn) btn.disabled = true;
+      var payload = {
+        name: (document.getElementById("inq-name") || {}).value || "",
+        email: (document.getElementById("inq-email") || {}).value || "",
+        genre: (document.getElementById("inq-genre") || {}).value || "",
+        wordCount: (document.getElementById("inq-words") || {}).value || "",
+        service: (document.getElementById("inq-service") || {}).value || "",
+        stage: (document.getElementById("inq-stage") || {}).value || "",
+        deadline: (document.getElementById("inq-deadline") || {}).value || "",
+        message: (document.getElementById("inq-message") || {}).value || "",
+        website: (document.getElementById("inq-website") || {}).value || "",
+      };
+      fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          return res.json().then(function (data) {
+            return { ok: res.ok && data && data.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok || (result.data && result.data.skipped)) {
+            if (statusEl) statusEl.textContent = "Received. We will reply within two business days.";
+            inquiry.reset();
+          } else {
+            if (statusEl) {
+              statusEl.textContent =
+                (result.data && result.data.error) || "Could not send. Email hello@polarbearediting.com.";
+            }
+          }
+        })
+        .catch(function () {
+          if (statusEl) statusEl.textContent = "Network error. Email hello@polarbearediting.com.";
+        })
+        .then(function () {
+          if (btn) btn.disabled = false;
+        });
+    });
+  }
+
   // Editing cost calculator
   var form = document.getElementById("cost-form");
   if (!form) return;

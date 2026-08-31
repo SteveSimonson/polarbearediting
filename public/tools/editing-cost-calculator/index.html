@@ -13,6 +13,10 @@
   <meta property="og:title" content="Book Editing Cost Calculator — Polar Bear Editing" />
   <meta property="og:description" content="Interactive book editing cost calculator: slide your word count, pick a stage, and see live ranges for developmental editing, copyediting, proofreading, and critiques." />
   <meta property="og:site_name" content="Polar Bear Editing" />
+  <meta property="og:image" content="https://polarbearediting.com/brand/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content="https://polarbearediting.com/brand/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Book Editing Cost Calculator — Polar Bear Editing" />
   <meta name="twitter:description" content="Interactive book editing cost calculator: slide your word count, pick a stage, and see live ranges for developmental editing, copyediting, proofreading, and critiques." />
@@ -24,13 +28,55 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Book Editing Cost Calculator",
-    "url": "https://polarbearediting.com/tools/editing-cost-calculator/",
-    "applicationCategory": "BusinessApplication",
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-    "description": "Interactive educational calculator for book editing costs by service type, word count, manuscript condition, and timeline.",
-    "publisher": {"@type": "Organization", "name": "Polar Bear Editing"}
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Book Editing Cost Calculator",
+        "url": "https://polarbearediting.com/tools/editing-cost-calculator/",
+        "applicationCategory": "BusinessApplication",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "description": "Interactive educational calculator for book editing costs by service type, word count, manuscript condition, and timeline.",
+        "publisher": {"@type": "Organization", "name": "Polar Bear Editing"},
+        "dateModified": "2026-08-30"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How did you calculate these ranges?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Word count times the educational per-word band for the selected service, then adjusted for manuscript condition and rush. Bands: critique $0.008–$0.018, proofreading $0.010–$0.020, copyediting $0.018–$0.035, developmental $0.030–$0.060, package $0.045–$0.080. They match the tables in our book editing cost guide."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this a Polar Bear quote?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. It is an educational market range, not an invoice. A real quote needs sample pages, a written scope, and your actual word count."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I pick the wrong pass?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The number will look cheaper and the book will not get the work it needs. Proofreading a first draft is how rough books ship polished. If structure is still moving, start with a critique or developmental edit."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a typical novel length?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Commercial fiction often lands near 70,000–90,000 words. This calculator defaults to 80,000 because that is the planning number most authors search. Novellas cluster around 40,000; epic fantasy can run 120,000 and up."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -221,6 +267,30 @@
               </thead>
               <tbody id="cost-compare"></tbody>
             </table>
+          </div>
+        </div>
+
+        <div class="card calc-compare">
+          <p class="eyebrow">FAQ</p>
+          <h2>Before you treat the number as a quote</h2>
+          <p class="muted">Educational ranges, not Polar Bear quotes. Pick the right pass before you trust the sticker.</p>
+          <div class="faq">
+            <details>
+              <summary>How did you calculate these ranges?</summary>
+              <p>Word count times the educational per-word band for the selected service, then adjusted for manuscript condition and rush. Bands: critique $0.008–$0.018, proofreading $0.010–$0.020, copyediting $0.018–$0.035, developmental $0.030–$0.060, package $0.045–$0.080. They match the tables in our <a href="/guides/how-much-does-book-editing-cost/">book editing cost guide</a>.</p>
+            </details>
+            <details>
+              <summary>Is this a Polar Bear quote?</summary>
+              <p>No. It is an educational market range, not an invoice. A real quote needs sample pages, a written scope, and your actual word count. <a href="/contact/">Request a scoped quote</a> when you want a human number.</p>
+            </details>
+            <details>
+              <summary>What if I pick the wrong pass?</summary>
+              <p>The number will look cheaper and the book will not get the work it needs. Proofreading a first draft is how rough books ship polished. If structure is still moving, start with a critique or developmental edit.</p>
+            </details>
+            <details>
+              <summary>What is a typical novel length?</summary>
+              <p>Commercial fiction often lands near 70,000–90,000 words. This calculator defaults to 80,000 because that is the planning number most authors search. Novellas cluster around 40,000; epic fantasy can run 120,000 and up.</p>
+            </details>
           </div>
         </div>
       </div>
