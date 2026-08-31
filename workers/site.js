@@ -195,6 +195,9 @@ export default {
         url.pathname === "/sitemap.xml" ? "application/xml; charset=UTF-8" : "text/plain; charset=UTF-8"
       );
       headers.set("Cache-Control", "public, max-age=300, must-revalidate");
+      if (request.method === "HEAD") {
+        return withHsts(new Response(null, { status: 200, headers }));
+      }
       return withHsts(new Response(res.body, { status: 200, headers }));
     }
 
@@ -208,10 +211,12 @@ export default {
     const res = await env.ASSETS.fetch(request);
     if (res.status === 404) {
       const out = cacheHeaders(res, url.pathname);
-      if ((out.headers.get("content-type") || "").includes("text/html")) {
-        out.headers.set("X-Robots-Tag", "noindex, nofollow");
-      } else if (/\.[a-z0-9]+$/i.test(last) && (out.headers.get("content-type") || "").includes("text/html")) {
+      const ct = out.headers.get("content-type") || "";
+      if (/\.[a-z0-9]+$/i.test(last) && ct.includes("text/html")) {
         return withHsts(new Response("Not found", { status: 404, headers: { "content-type": "text/plain" } }));
+      }
+      if (ct.includes("text/html")) {
+        out.headers.set("X-Robots-Tag", "noindex, nofollow");
       }
       return withHsts(out);
     }
