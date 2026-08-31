@@ -13,6 +13,10 @@
   <meta property="og:title" content="Contact Polar Bear Editing — Request a Quote" />
   <meta property="og:description" content="Request a book editing quote: tell us genre, word count, deadline, and goals. Polar Bear Editing responds with stage recommendation and next steps." />
   <meta property="og:site_name" content="Polar Bear Editing" />
+  <meta property="og:image" content="https://polarbearediting.com/brand/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content="https://polarbearediting.com/brand/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact Polar Bear Editing — Request a Quote" />
   <meta name="twitter:description" content="Request a book editing quote: tell us genre, word count, deadline, and goals. Polar Bear Editing responds with stage recommendation and next steps." />
@@ -47,29 +51,73 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Contact</span></nav>
         <p class="eyebrow">Contact</p>
         <h1>Tell us about the manuscript</h1>
-        <p class="lead">Email is the fastest path. Include genre, word count, stage (draft 2, post-beta, pre-upload), deadline, and the service you think you need.</p>
+        <p class="lead">Send the form. We reply with a stage recommendation, sample-page plan, and timing—or we tell you we are not the right desk.</p>
       </div>
     </section>
     <section class="section">
       <div class="container two-col">
         <div class="card">
-          <h3>Email the desk</h3>
-          <p style="margin-bottom:1rem">We reply with a stage recommendation, sample-page plan, and timing. If we are not the right fit, we will say so.</p>
-          <a class="btn btn-primary" href="mailto:hello@polarbearediting.com?subject=Editing%20inquiry">hello@polarbearediting.com</a>
-          <p class="muted" style="margin-top:1.25rem;font-size:0.92rem">Prefer structure? Paste this checklist into your email:</p>
-          <ul class="muted" style="font-size:0.95rem">
-            <li>Working title + genre/subgenre</li>
-            <li>Word count</li>
-            <li>Fiction or nonfiction</li>
-            <li>What you want help with</li>
-            <li>Deadline or launch target</li>
-            <li>Whether you have beta feedback</li>
-          </ul>
+          <h3>Project inquiry</h3>
+          <form id="inquiry-form" action="/api/leads" method="post">
+            <div class="field">
+              <label for="inq-name">Name</label>
+              <input id="inq-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="inq-email">Email</label>
+              <input id="inq-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="inq-genre">Genre / subgenre</label>
+              <input id="inq-genre" name="genre" type="text" />
+            </div>
+            <div class="field">
+              <label for="inq-words">Word count</label>
+              <input id="inq-words" name="wordCount" type="text" inputmode="numeric" />
+            </div>
+            <div class="field">
+              <label for="inq-service">Service you think you need</label>
+              <select id="inq-service" name="service">
+                <option value="">Not sure yet</option>
+                <option value="critique">Manuscript critique</option>
+                <option value="developmental">Developmental editing</option>
+                <option value="copyedit">Copyediting</option>
+                <option value="proofread">Proofreading</option>
+                <option value="package">Dev + copy package</option>
+                <option value="formatting">Book formatting</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="inq-stage">Manuscript stage</label>
+              <select id="inq-stage" name="stage">
+                <option value="first-draft">First full draft</option>
+                <option value="post-beta" selected>Revised / post-beta</option>
+                <option value="story-locked">Story locked</option>
+                <option value="layout-ready">Final freeze</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="inq-deadline">Deadline or launch target</label>
+              <input id="inq-deadline" name="deadline" type="text" />
+            </div>
+            <div class="field">
+              <label for="inq-message">What you need help with</label>
+              <textarea id="inq-message" name="message" rows="5"></textarea>
+            </div>
+            <div class="field visually-hidden" aria-hidden="true">
+              <label for="inq-website">Website</label>
+              <input id="inq-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <p id="inq-status" class="muted" role="status"></p>
+            <div class="btn-row">
+              <button class="btn btn-primary" type="submit">Send inquiry</button>
+            </div>
+          </form>
         </div>
         <div class="card">
           <h3>Before you write</h3>
           <p>Unsure which service? Read <a href="/guides/types-of-editing/">types of editing</a> or run the <a href="/tools/editing-cost-calculator/">cost calculator</a>.</p>
-          <p style="margin-top:1rem">Looking for education only? Start in <a href="/guides/">guides</a>—no inquiry required.</p>
+          <p style="margin-top:1rem">Prefer email? <a href="mailto:hello@polarbearediting.com">hello@polarbearediting.com</a> still works.</p>
           <div class="callout" style="margin-top:1.25rem">
             <strong>Response expectation:</strong> We aim to reply within 2 business days. Complex manuscripts may need a short sample review before a firm quote.
           </div>

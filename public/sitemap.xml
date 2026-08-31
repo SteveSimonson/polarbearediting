@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://polarbearediting.com/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://polarbearediting.com/contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://polarbearediting.com/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://polarbearediting.com/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://polarbearediting.com/about/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://polarbearediting.com/contact/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://polarbearediting.com/guides/beta-readers-guide/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/book-editing-for-self-publishing/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://polarbearediting.com/guides/copyediting-cost/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://polarbearediting.com/guides/developmental-editing-cost/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/developmental-vs-copy-editing/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://polarbearediting.com/guides/hire-a-book-editor/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/how-much-does-book-editing-cost/</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
   <url><loc>https://polarbearediting.com/guides/how-to-find-a-book-editor/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://polarbearediting.com/guides/kdp-editing/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/line-editing-vs-copyediting/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/manuscript-critique-vs-developmental-edit/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://polarbearediting.com/guides/memoir-editor/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://polarbearediting.com/guides/prepare-manuscript-for-editor/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/self-publishing-editing-checklist/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/types-of-editing/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/guides/when-to-hire-an-editor/</loc><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://polarbearediting.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://polarbearediting.com/journal/23-things-you-already-have-in-your-writers-arsenal/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/acronyms-for-writers/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/advice-on-advice-dont-take-advice/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/beta-readers-are-essential-in-your-editing-journey/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/editing-a-published-book-handbook-for-mortals-part-1/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/emotionally-preparing-for-feedbackk/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://polarbearediting.com/journal/is-kindle-unlimited-worth-it/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/nanowrimo-make-your-wordcount-count/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/the-10-beta-readers-youll-meet-in-hell/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/three-types-of-editing/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/villains-should-be-teddy-bears-with-knives-as-hearts/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/when-is-the-best-time-to-get-an-editor/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://polarbearediting.com/journal/you-thought-you-knew-is-it-worshipping-or-worshiping-one-p-or-two/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://polarbearediting.com/journal/23-things-you-already-have-in-your-writers-arsenal/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/acronyms-for-writers/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/advice-on-advice-dont-take-advice/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/beta-readers-are-essential-in-your-editing-journey/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/editing-a-published-book-handbook-for-mortals-part-1/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/emotionally-preparing-for-feedbackk/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/is-kindle-unlimited-worth-it/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/nanowrimo-make-your-wordcount-count/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/the-10-beta-readers-youll-meet-in-hell/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/three-types-of-editing/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/villains-should-be-teddy-bears-with-knives-as-hearts/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/when-is-the-best-time-to-get-an-editor/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/journal/you-thought-you-knew-is-it-worshipping-or-worshiping-one-p-or-two/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://polarbearediting.com/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://polarbearediting.com/services/book-formatting/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://polarbearediting.com/services/copyediting/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://polarbearediting.com/services/developmental-editing/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://polarbearediting.com/services/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://polarbearediting.com/services/manuscript-critique/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://polarbearediting.com/services/proofreading/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://polarbearediting.com/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://polarbearediting.com/tools/editing-cost-calculator/</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
 </urlset>
