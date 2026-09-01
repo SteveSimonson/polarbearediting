@@ -1,41 +1,106 @@
 /**
  * Edge Worker for polarbearediting.com
  * Canonical host, HSTS, cache, real 404s, IndexNow key, Parsimony Automate leads.
+ *
+ * Cache: hashed /assets + fonts immutable 1y; unhashed JS/CSS 1d must-revalidate;
+ * brand ~7d; HTML max-age=0. HEAD never subfetches ASSETS with incoming HEAD.
+ * WebP rewrite only when a real image/webp file exists.
  */
 
 const APEX = "polarbearediting.com";
+const HSTS = "max-age=31536000";
+const HTML_CACHE = "public, max-age=0, must-revalidate";
+const FONT_CACHE = "public, max-age=31536000, immutable";
+const HASHED_CACHE = "public, max-age=31536000, immutable";
+const UNHASHED_SCRIPT_CACHE = "public, max-age=86400, must-revalidate";
+const BRAND_CACHE = "public, max-age=604800";
+const SITEMAP_CACHE = "public, max-age=300, must-revalidate";
+
+const HASHED_ASSET = /\/assets\/[^/]+-[A-Za-z0-9_-]{8,}\.[A-Za-z0-9]+$/;
+
+export function cacheControlForPath(path) {
+  const lower = path.toLowerCase();
+  if (lower.startsWith("/assets/fonts/") || lower.endsWith(".woff2")) {
+    return FONT_CACHE;
+  }
+  if (path.startsWith("/assets/")) {
+    if (HASHED_ASSET.test(path)) return HASHED_CACHE;
+    if (/\.(js|css)$/.test(lower)) return UNHASHED_SCRIPT_CACHE;
+    return BRAND_CACHE;
+  }
+  if (path.startsWith("/brand/") || /\.(svg|png|jpe?g|webp|gif|ico)$/.test(lower)) {
+    return BRAND_CACHE;
+  }
+  return null;
+}
 
 function withHsts(res) {
   const out = new Response(res.body, res);
-  out.headers.set("Strict-Transport-Security", "max-age=31536000");
+  out.headers.set("Strict-Transport-Security", HSTS);
   out.headers.set("X-Content-Type-Options", "nosniff");
   return out;
 }
 
 function json(body, status, extra) {
-  return withHsts(
-    new Response(JSON.stringify(body), {
-      status,
-      headers: {
-        "content-type": "application/json; charset=utf-8",
-        "cache-control": "no-store",
-        ...(extra || {}),
-      },
-    })
-  );
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      ...(extra || {}),
+    },
+  });
 }
 
-function cacheHeaders(res, pathname) {
-  const out = new Response(res.body, res);
-  if (pathname.startsWith("/assets/")) {
-    out.headers.set("Cache-Control", "public, max-age=31536000, immutable");
-  } else if (pathname.startsWith("/brand/")) {
-    out.headers.set("Cache-Control", "public, max-age=604800");
-  } else if (pathname === "/sitemap.xml" || pathname === "/robots.txt") {
-    out.headers.set("Cache-Control", "public, max-age=300, must-revalidate");
-  } else if (pathname.endsWith(".html") || pathname.endsWith("/") || !pathname.includes(".")) {
-    out.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+/**
+ * Proxy ASSETS with an explicit GET. Passing the incoming HEAD method
+ * yields an empty body and can 500 a cold isolate.
+ */
+async function fetchAssets(env, assetUrl, incoming) {
+  const headers = new Headers(incoming.headers);
+  headers.delete("host");
+  const res = await env.ASSETS.fetch(
+    new Request(assetUrl, { method: "GET", headers, redirect: "manual" })
+  );
+  if (incoming.method === "HEAD") {
+    return new Response(null, {
+      status: res.status,
+      statusText: res.statusText,
+      headers: res.headers,
+    });
   }
+  return new Response(res.body, res);
+}
+
+function withCache(res, cacheControl) {
+  const out = new Response(res.body, res);
+  out.headers.set("Cache-Control", cacheControl);
+  return out;
+}
+
+async function maybeWebpRewrite(request, env, url) {
+  if (request.method !== "GET" && request.method !== "HEAD") return null;
+  if (!/\.(jpe?g|png)$/i.test(url.pathname)) return null;
+  const accept = request.headers.get("Accept") || "";
+  if (!accept.includes("image/webp")) return null;
+
+  const webpPath = url.pathname.replace(/\.(jpe?g|png)$/i, ".webp");
+  const webpUrl = new URL(webpPath + url.search, url.origin);
+  const probe = await env.ASSETS.fetch(new Request(webpUrl, { method: "GET" }));
+  if (probe.status !== 200) return null;
+  const ct = (probe.headers.get("Content-Type") || "").toLowerCase();
+  if (!ct.includes("image/webp")) return null;
+
+  const cache = cacheControlForPath(webpPath) || BRAND_CACHE;
+  if (request.method === "HEAD") {
+    const headers = new Headers(probe.headers);
+    headers.set("Cache-Control", cache);
+    headers.set("Content-Type", "image/webp");
+    return new Response(null, { status: 200, headers });
+  }
+  const out = new Response(probe.body, probe);
+  out.headers.set("Cache-Control", cache);
+  out.headers.set("Content-Type", "image/webp");
   return out;
 }
 
@@ -50,16 +115,14 @@ function isEmail(value) {
 
 async function handleLeads(request, env) {
   if (request.method === "OPTIONS") {
-    return withHsts(
-      new Response(null, {
-        status: 204,
-        headers: {
-          "access-control-allow-origin": "https://polarbearediting.com",
-          "access-control-allow-methods": "POST, OPTIONS",
-          "access-control-allow-headers": "content-type",
-        },
-      })
-    );
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "access-control-allow-origin": "https://polarbearediting.com",
+        "access-control-allow-methods": "POST, OPTIONS",
+        "access-control-allow-headers": "content-type",
+      },
+    });
   }
   if (request.method !== "POST") {
     return json({ ok: false, error: "Method not allowed" }, 405);
@@ -172,54 +235,65 @@ async function handleCrmStatus(env) {
   }
 }
 
+async function handleRequest(request, env) {
+  const url = new URL(request.url);
+
+  if (url.hostname === "www." + APEX || (url.hostname === APEX && url.protocol === "http:")) {
+    return Response.redirect("https://" + APEX + url.pathname + url.search, 301);
+  }
+
+  if (url.pathname.startsWith("/api/")) {
+    if (url.pathname === "/api/leads") return handleLeads(request, env);
+    if (url.pathname === "/api/crm/status" && request.method === "GET") return handleCrmStatus(env);
+    return json({ ok: false, error: "Not found" }, 404);
+  }
+
+  const webp = await maybeWebpRewrite(request, env, url);
+  if (webp) return webp;
+
+  if (url.pathname === "/sitemap.xml" || url.pathname === "/robots.txt") {
+    const res = await fetchAssets(env, new URL(url.pathname, url.origin), request);
+    if (res.status !== 200) return res;
+    const headers = new Headers(res.headers);
+    headers.set(
+      "Content-Type",
+      url.pathname === "/sitemap.xml" ? "application/xml; charset=UTF-8" : "text/plain; charset=UTF-8"
+    );
+    headers.set("Cache-Control", SITEMAP_CACHE);
+    return new Response(res.body, {
+      status: res.status,
+      statusText: res.statusText,
+      headers,
+    });
+  }
+
+  const last = url.pathname.split("/").pop() || "";
+  const res = await fetchAssets(env, url, request);
+  if (res.status === 404) {
+    const out = new Response(res.body, res);
+    const ct = out.headers.get("content-type") || "";
+    if (/\.[a-z0-9]+$/i.test(last) && ct.includes("text/html")) {
+      return new Response("Not found", { status: 404, headers: { "content-type": "text/plain" } });
+    }
+    if (ct.includes("text/html")) {
+      out.headers.set("X-Robots-Tag", "noindex, nofollow");
+      out.headers.set("Cache-Control", HTML_CACHE);
+    } else {
+      const cc = cacheControlForPath(url.pathname);
+      if (cc) out.headers.set("Cache-Control", cc);
+    }
+    return out;
+  }
+
+  const ct = (res.headers.get("Content-Type") || "").toLowerCase();
+  if (ct.includes("text/html")) return withCache(res, HTML_CACHE);
+  const cc = cacheControlForPath(url.pathname);
+  return cc ? withCache(res, cc) : res;
+}
+
 export default {
   async fetch(request, env) {
-    const url = new URL(request.url);
-
-    if (url.hostname === "www." + APEX || (url.hostname === APEX && url.protocol === "http:")) {
-      return withHsts(Response.redirect("https://" + APEX + url.pathname + url.search, 301));
-    }
-
-    if (url.pathname.startsWith("/api/")) {
-      if (url.pathname === "/api/leads") return handleLeads(request, env);
-      if (url.pathname === "/api/crm/status" && request.method === "GET") return handleCrmStatus(env);
-      return json({ ok: false, error: "Not found" }, 404);
-    }
-
-    if (url.pathname === "/sitemap.xml" || url.pathname === "/robots.txt") {
-      const res = await env.ASSETS.fetch(new Request(new URL(url.pathname, url.origin), { method: "GET" }));
-      if (res.status !== 200) return withHsts(res);
-      const headers = new Headers(res.headers);
-      headers.set(
-        "Content-Type",
-        url.pathname === "/sitemap.xml" ? "application/xml; charset=UTF-8" : "text/plain; charset=UTF-8"
-      );
-      headers.set("Cache-Control", "public, max-age=300, must-revalidate");
-      if (request.method === "HEAD") {
-        return withHsts(new Response(null, { status: 200, headers }));
-      }
-      return withHsts(new Response(res.body, { status: 200, headers }));
-    }
-
-    const last = url.pathname.split("/").pop() || "";
-    if (request.method === "HEAD") {
-      const probe = await env.ASSETS.fetch(new Request(url.toString(), { method: "GET" }));
-      const headers = cacheHeaders(probe, url.pathname).headers;
-      return withHsts(new Response(null, { status: probe.status, headers }));
-    }
-
-    const res = await env.ASSETS.fetch(request);
-    if (res.status === 404) {
-      const out = cacheHeaders(res, url.pathname);
-      const ct = out.headers.get("content-type") || "";
-      if (/\.[a-z0-9]+$/i.test(last) && ct.includes("text/html")) {
-        return withHsts(new Response("Not found", { status: 404, headers: { "content-type": "text/plain" } }));
-      }
-      if (ct.includes("text/html")) {
-        out.headers.set("X-Robots-Tag", "noindex, nofollow");
-      }
-      return withHsts(out);
-    }
-    return withHsts(cacheHeaders(res, url.pathname));
+    const res = await handleRequest(request, env);
+    return withHsts(res);
   },
 };

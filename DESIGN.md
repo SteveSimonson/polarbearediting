@@ -102,9 +102,9 @@ Do not invent hues. Pen is an instrument, not a theme color to spray.
 
 Three roles. Do not add a fourth family.
 
-- **Display:** Newsreader — large, optical size, weight 400. Italic for the one marked phrase. Size jumps of ~3× body, not 1.5×.
-- **Body / UI:** Source Sans 3 — 400 body, 700 on buttons.
-- **Utility:** IBM Plex Mono — eyebrows, folios, word counts, `stet`.
+- **Display:** Newsreader — large, optical size, weight 400. Italic for the one marked phrase. Size jumps of ~3× body, not 1.5×. Latin self-hosted files: `/assets/fonts/newsreader-latin-wght-*.woff2` (SIL OFL).
+- **Body / UI:** Source Sans 3 — 400 body, 700 on buttons. Latin self-hosted file: `/assets/fonts/source-sans-3-latin-wght-normal.woff2` (SIL OFL).
+- **Utility:** IBM Plex Mono — eyebrows, folios, word counts, `stet`. Latin self-hosted files: `/assets/fonts/ibm-plex-mono-latin-*-normal.woff2` (SIL OFL).
 
 Never Inter, Roboto, system-ui as the designed stack. Never Space Grotesk.
 
