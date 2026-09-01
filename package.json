@@ -2,11 +2,13 @@
   "name": "polarbearediting",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "polarbearediting.com — professional book editing and author education",
   "scripts": {
     "dev": "npx wrangler dev",
     "deploy": "npx wrangler deploy",
     "preview": "cd public && python3 -m http.server 8893",
+    "test": "node --test tests/*.test.mjs",
     "indexnow": "node scripts/indexnow.mjs"
   },
   "devDependencies": {
