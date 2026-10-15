@@ -9,6 +9,20 @@
 
 const APEX = "polarbearediting.com";
 const HSTS = "max-age=31536000";
+// Homepage: same-origin CSS/JS/fonts, one inline script, no style attributes, no beacon.
+const CSP = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data:",
+  "style-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "connect-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
 const HTML_CACHE = "public, max-age=0, must-revalidate";
 const FONT_CACHE = "public, max-age=31536000, immutable";
 const HASHED_CACHE = "public, max-age=31536000, immutable";
@@ -38,6 +52,8 @@ function withHsts(res) {
   const out = new Response(res.body, res);
   out.headers.set("Strict-Transport-Security", HSTS);
   out.headers.set("X-Content-Type-Options", "nosniff");
+  out.headers.set("X-Frame-Options", "DENY");
+  out.headers.set("Content-Security-Policy", CSP);
   return out;
 }
 
